@@ -46,3 +46,26 @@ body{
     background-color: red;
     border-color: red;
 }
+/* Tùy chỉnh thanh cuộn */
+  .dropdown-filter div::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .dropdown-filter div::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+  
+  .dropdown-filter div::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+
+  @media (min-width: 576px) {
+    .model-filter .modal-dialog-centered {
+        max-width: 50%;
+    }
+}
+.form-check-input {
+  width: 1.5em;
+  height: 1.5em;
+}
