@@ -11,6 +11,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 const JobDetail = ({ job }) => {
 
   return (
+    job&&<>
     <Card className="mt-4 rounded border-0 dropdown-filter">
       <Card.Body className="p-0">
         <div className="px-4 mt-4">
@@ -212,7 +213,9 @@ const JobDetail = ({ job }) => {
           </div>
         </div>
       </Card.Body>
-    </Card>
+    </Card> 
+    </>
+   
   );
 };
 

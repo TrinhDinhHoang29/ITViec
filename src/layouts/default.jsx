@@ -7,36 +7,26 @@ import FilterJobs from "../components/FilterJobs";
 import { Col, Row } from "react-bootstrap";
 import JobCard from "../components/JobCard";
 import JobDetail from "../components/JobDetail";
+import { useEffect, useState } from "react";
+import CustomPagination from "../components/CustomPagination";
 
 export const DefaultLayout = () => {
-  const jobData = {
-    title: "Junior/Senior Business Analyst",
-    salary: "Sign in to view salary",
-    location: "Ho Chi Minh",
-    workType: "At office",
-    postedTime: "1 hour ago",
-    skills: ["Business Analyst", "English"],
-    isHot: true,
-    company: {
-      name: "TPISoftware Co., Ltd",
-      type:"IT Outsourcing",
-      country:"Viet Nam",
-      industry: "IT Services and Consulting",
-      size: "1-50",
-      workingDays: "Monday - Friday",
-      policy: "No OT",
-      logo: "/images/GrabLogo.webp",
-      description:"bbv Vietnam stands for top quality in consulting, first class software engineering"
-    },
-    benefits: [
-      "Professional and international working environment",
-      "Golden career path",
-      "Attractive salary",
-    ],
-    jobDescription: "<h4>WHAT YOU WILL LOVE DOING</h4> <ul> <li>Participate in requirement analysis, implementation, code review, unit test, test and deployment process.</li> <li>Write technical documents.</li> <li>Collaborate daily with a cross-functional team in a distributed environment.</li> <li>Work as part of a team and participate in customer support activities as needed.</li> <li>Research technologies and share knowledge to colleagues.</li> </ul>"
-    
-  };
-  
+  const [jobs,setJobs] = useState([]);
+  const [jobActive,setJobActive] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 52; // Số trang tổng cộng
+  const handleSetJobActive = (job)=>{
+    setJobActive(job)
+  }
+  useEffect(()=>{
+    fetch(`https://67af317adffcd88a6785df5d.mockapi.io/job?page=${currentPage}&limit=5`)
+    .then(res=>res.json())
+    .then(data=>{
+      setJobs(data)
+    })
+
+  },[currentPage]);
+  console.log(jobs)
   return (
     <>
       <Header />
@@ -64,25 +54,22 @@ export const DefaultLayout = () => {
           <Row>
             <Col xs="5">
               <div className="d-flex flex-column mt-4">
-                <JobCard job={jobData} />
-                <JobCard job={jobData} />
-                <JobCard job={jobData} />
-                <JobCard job={jobData} />
-                <JobCard job={jobData} />
-                <JobCard job={jobData} /> 
-
+                {
+                  jobs.map(job=><JobCard job={job} handleSetJobActive={handleSetJobActive} jobActive={jobActive}/>)
+                }
               </div>
             </Col>
             <Col style={{position: "sticky",
   top: "80px" ,
   height: "100vh",}}>
-              <JobDetail job={jobData}/>
+              <JobDetail job={jobActive}/>
             </Col>
           </Row>
         </div>
       </div>
-      <div className="my-4 text-center">
-              pagination
+      <div className="my-4 d-flex justify-content-center">
+      <CustomPagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+
       </div>
       <div style={{borderTop:"1px solid #a6a6a6a6"}} className="mt-4 ">
         <div className="icontainer-header">

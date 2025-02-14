@@ -9,11 +9,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SpotlightBadge from "../SpotlightBadge";
 
-const JobCard = ({ job }) => {
+const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
+ 
   return (
     <Card
-      className="p-3 bg-light-subtle mb-3 position-relative border-danger jobCard-active"
+      className={`p-3 bg-light-subtle mb-3 position-relative ${jobActive&&job.id === jobActive.id?"jobCard-active border-danger":""}`} 
       style={{ cursor: "pointer",borderRadius:"15px",boxShadow:"rgba(0, 0, 0, 0.06) 0px 4px 20px",backgroundColor:job.isHot?"#fff4e9":"white" }}
+      onClick={()=>handleSetJobActive(job)}
     >
       <SpotlightBadge
         text={

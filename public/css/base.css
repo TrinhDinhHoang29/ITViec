@@ -120,3 +120,28 @@ footer::after {
   border-bottom: 8px solid transparent;
   border-left: 8px solid red;
 }
+.page{
+
+    border: 1px solid #dedede;
+    color: #414042;
+    background-color: white;
+    border-radius: 4px;
+    padding: 0 4px;
+    cursor: pointer;
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page:hover{
+  color: #ed1b2f;
+    background-color: #fff5f5;
+    border-color: #ed1b2f;
+    transition: .3s;
+}
+.page.current-page{
+  background-color: #ed1b2f;
+    border-color: #ed1b2f;
+    color: #fff;
+}
