@@ -69,3 +69,54 @@ body{
   width: 1.5em;
   height: 1.5em;
 }
+.tag-hover:hover{
+  border-color: black !important;
+}
+.footer-list ul>li{
+  margin: 20px 0px;
+  color: #A6A6A6;
+
+}
+.footer-list ul>li>a{
+  color: #A6A6A6;
+}
+.footer-list h5{
+  color: white;
+}
+footer{
+  position: relative;
+}
+footer::after {
+  content: "";
+  display: block;  /* Hiển thị phần tử giả */
+  width: 50%;  /* Chiều rộng toàn bộ footer */
+  height: 100%;  /* Điều chỉnh chiều cao theo nhu cầu */
+  background-image: url("https://itviec.com/assets/footer-image-35f866330436404820ee462153a6b32edebdbdd90869eedacf2205b45fcc9f4a.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Giúp ảnh phủ toàn bộ phần tử */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.jobCard-active::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  margin: 8px 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #ed1b2f;
+}
+.jobCard-active::after{
+  content: "";
+  position: absolute;
+  right: -8px;
+  bottom: calc(50% - 8px);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid red;
+}

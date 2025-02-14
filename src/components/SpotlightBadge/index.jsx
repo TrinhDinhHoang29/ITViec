@@ -1,12 +1,12 @@
 import React from "react";
 
-const SpotlightBadge = () => {
+const SpotlightBadge = ({text,color,positionParent,borderParent,styleChild}) => {
   return (
-   <div style={{position:"absolute",top:"5%"}}>
+   <div style={{position:"absolute",...positionParent}}>
      <div style={{ position: "relative", display: "inline-block" }}>
       <div
         style={{
-          backgroundColor: "#f7941d ",
+          backgroundColor: color,
           color: "white",
           fontWeight: "bold",
           // borderRadius: "5px",
@@ -14,22 +14,15 @@ const SpotlightBadge = () => {
           position: "relative",
           zIndex: 1,
           fontSize:"18px",
-          borderTopRightRadius:"5px",
-          borderBottomRightRadius:"5px"
+          ...borderParent
         }}
       >
-        Company Spotlight
+        {text}
       </div>
       {/* Mũi tên xuống */}
       <div
         style={{
-          position: "absolute",
-          bottom: "-5px",
-          width: "40px",
-          height: "0",
-          borderRight: "40px solid transparent",
-          borderTop: "22px solid #f7941d",
-          zIndex: 0
+          ...styleChild
         }}
       ></div>
     </div>

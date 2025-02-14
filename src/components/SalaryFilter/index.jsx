@@ -11,7 +11,7 @@ const SalaryFilter = ({ onApply }) => {
     <Dropdown>
       <Dropdown.Toggle
         variant="light"
-        className="d-flex align-items-center px-3 border"
+        className="d-flex align-items-center px-3 border bg-white"
         bsPrefix="toggle"
         style={{ borderRadius: "25px", padding: "10px 25px", fontSize: "19px" }}
       >
