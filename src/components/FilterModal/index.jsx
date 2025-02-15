@@ -1,35 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
 import RangeFilter from "../RangeFilter";
 import RangeValue from "../RangeValue";
+import { useFilter } from "../../layouts/default";
 
 const FilterModal = ({ show, handleClose }) => {
-  const [selectedLevels, setSelectedLevels] = useState([]);
-  const [selectedModels, setSelectedModels] = useState([]);
-  const [selectedCompanies, setSelectedCompanies] = useState([]);
+  const {
+    selectedLevels,
+    setSelectedLevels,
+    selectedModels,
+    setSelectedModels,
+    selectedCompanies,
+    setSelectedCompanies,
+    salaryRange,
+    setSalaryRange,
+    selectedIndustries,
+    setSelectedIndustries,
+  } = useFilter();
+  const [selectedLevels1, setSelectedLevels1] = useState([]);
+  const [selectedModels1, setSelectedModels1] = useState([]);
+  const [selectedCompanies1, setSelectedCompanies1] = useState([]);
+  const [salaryRange1, setSalaryRange1] = useState([500, 10000]);
+  const [selectedIndustries1, setSelectedIndustries1] = useState([]);
 
-  const [salaryRange, setSalaryRange] = useState([500, 10000]);
+  useEffect(() => {
+    setSelectedLevels1(selectedLevels);
+    setSelectedModels1(selectedModels);
+    setSalaryRange1(salaryRange);
+    setSelectedCompanies1(selectedCompanies);
+    setSelectedIndustries1(selectedIndustries);
+  }, [
+    selectedLevels,
+    selectedModels,
+    selectedCompanies,
+    salaryRange,
+    selectedIndustries,
+  ]);
+  const handleApply = () => {
+    handleClose();
+    setSelectedLevels(selectedLevels1);
+    setSelectedModels(selectedModels1);
+    setSelectedCompanies(selectedCompanies1);
+    setSalaryRange(salaryRange1);
+    setSelectedIndustries(selectedIndustries1);
+  };
   const [searchIndustry, setSearchIndustry] = useState("");
-  const [selectedIndustries, setSelectedIndustries] = useState([]);
+
+  const handleHide = () => {
+    handleClose();
+    setSelectedLevels1(selectedLevels);
+    setSelectedModels1(selectedModels);
+    setSalaryRange1(salaryRange);
+    setSelectedCompanies1(selectedCompanies);
+    setSelectedIndustries1(selectedIndustries);
+  };
+
   const sumfilter =
-    selectedLevels.length +
-    selectedModels.length +
-    selectedCompanies.length +
-    selectedIndustries.length;
-  const handleSetSalaryRange = (value) => setSalaryRange(value);
+    selectedLevels1.length +
+    selectedModels1.length +
+    selectedCompanies1.length +
+    (salaryRange1[0]!==500||salaryRange1[1]!==10000?1:0)+
+    selectedIndustries1.length;
+  const handleSetSalaryRange = (value) => setSalaryRange1(value);
   const levels = ["Fresher", "Junior", "Senior", "Manager"];
   const workModels = ["At office", "Remote", "Hybrid"];
   const industries = [
-    "Cyber Security",
-    "Trading and Commercial",
-    "Network and Infrastructure",
-    "Software Development",
+    "Software Development Outsourcing",
     "Software Products and Web Services",
+    "Agriculture",
+    "Sports and Fitness",
+    "Apparel and Fashion",
+    "Banking",
+    "E-Commerce",
+    "Education",
   ];
   const companyType = [
     "IT Outsourcing",
@@ -53,7 +98,7 @@ const FilterModal = ({ show, handleClose }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} centered className="model-filter">
+    <Modal show={show} onHide={handleHide} centered className="model-filter ">
       <Modal.Header closeButton style={{ padding: "15px 30px" }}>
         <Modal.Title>Filter</Modal.Title>
       </Modal.Header>
@@ -74,18 +119,16 @@ const FilterModal = ({ show, handleClose }) => {
               <Button
                 key={level}
                 variant={
-                  selectedLevels.includes(level)
+                  selectedLevels1.includes(level)
                     ? "outline-danger"
                     : "outline-secondary"
                 }
-                onClick={() =>
-                  toggleSelection(level, selectedLevels, setSelectedLevels)
-                }
+                onClick={() => toggleSelection(level, [], setSelectedLevels1)}
                 className="rounded-pill px-3"
               >
                 {level}
                 <span style={{ marginLeft: "10px" }}>
-                  {selectedLevels.includes(level) ? (
+                  {selectedLevels1.includes(level) ? (
                     <FontAwesomeIcon icon={faCheck} />
                   ) : (
                     <FontAwesomeIcon icon={faPlus} />
@@ -104,18 +147,18 @@ const FilterModal = ({ show, handleClose }) => {
               <Button
                 key={model}
                 variant={
-                  selectedModels.includes(model)
+                  selectedModels1.includes(model)
                     ? "outline-danger"
                     : "outline-secondary"
                 }
                 onClick={() =>
-                  toggleSelection(model, selectedModels, setSelectedModels)
+                  toggleSelection(model, selectedModels1, setSelectedModels1)
                 }
                 className="rounded-pill px-3"
               >
                 {model}
                 <span style={{ marginLeft: "10px" }}>
-                  {selectedModels.includes(model) ? (
+                  {selectedModels1.includes(model) ? (
                     <FontAwesomeIcon icon={faCheck} />
                   ) : (
                     <FontAwesomeIcon icon={faPlus} />
@@ -131,7 +174,7 @@ const FilterModal = ({ show, handleClose }) => {
           <strong>Salary</strong>
           <Row className="mt-2">
             <Col xs="4" style={{ marginTop: "20px" }}>
-              <RangeValue values={salaryRange} />
+              <RangeValue values={salaryRange1} />
             </Col>
             <Col
               style={{
@@ -141,7 +184,7 @@ const FilterModal = ({ show, handleClose }) => {
               }}
             >
               <RangeFilter
-                values={salaryRange}
+                values={salaryRange1}
                 handleSetValues={handleSetSalaryRange}
               />
             </Col>
@@ -174,12 +217,12 @@ const FilterModal = ({ show, handleClose }) => {
                     key={industry}
                     id={`checkboxModelIndustry-${index}`}
                     value={industry}
-                    checked={selectedIndustries.includes(industry)}
+                    checked={selectedIndustries1.includes(industry)}
                     onChange={() =>
                       toggleSelection(
                         industry,
-                        selectedIndustries,
-                        setSelectedIndustries
+                        selectedIndustries1,
+                        setSelectedIndustries1
                       )
                     }
                     className="me-2"
@@ -201,22 +244,22 @@ const FilterModal = ({ show, handleClose }) => {
                 <Button
                   key={Company}
                   variant={
-                    selectedCompanies.includes(Company)
+                    selectedCompanies1.includes(Company)
                       ? "outline-danger"
                       : "outline-secondary"
                   }
                   onClick={() =>
                     toggleSelection(
                       Company,
-                      selectedCompanies,
-                      setSelectedCompanies
+                      selectedCompanies1,
+                      setSelectedCompanies1
                     )
                   }
                   className="rounded-pill px-3"
                 >
                   {Company}
                   <span style={{ marginLeft: "10px" }}>
-                    {selectedCompanies.includes(Company) ? (
+                    {selectedCompanies1.includes(Company) ? (
                       <FontAwesomeIcon icon={faCheck} />
                     ) : (
                       <FontAwesomeIcon icon={faPlus} />
@@ -245,7 +288,7 @@ const FilterModal = ({ show, handleClose }) => {
         <Button
           variant="danger"
           style={{ fontSize: "20px" }}
-          onClick={handleClose}
+          onClick={handleApply}
         >
           Apply
         </Button>

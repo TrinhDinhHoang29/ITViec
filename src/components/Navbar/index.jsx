@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import DropDownMenu from "../DropDownMenu";
 export const NavbarComponent = () => {
+  const [categoriesJob,setCategoriesJob] = useState([]);
+   useEffect(()=>{
+      fetch(`https://67af317adffcd88a6785df5d.mockapi.io/CategoryJob`)
+      .then(res=>res.json())
+      .then(data=>{
+        setCategoriesJob(data)
+      })
+  
+    },[]);
+  console.log(categoriesJob);
+  
   return (
+
     <>
       <Row className="align-items-center">
         <Col xs={1}>
@@ -17,20 +30,15 @@ export const NavbarComponent = () => {
         </Col>
         <Col >
           <div className="d-flex justify-content-between">
-            <ul style={{ padding: "25px 0px", fontSize: "20px"  }} className="d-flex gap-4">
-              <li>
-                <a style={{ color: "#a6a6a6"}} href="#">
-                  All Jobs
-                  <span className="px-1"><FontAwesomeIcon icon={faAngleDown} /></span>
-                </a>
-              </li>
-              <li>
+            <ul style={{fontSize: "20px"  }} className="d-flex gap-4">
+              <DropDownMenu categories={categoriesJob}/>
+              <li style={{ padding: "25px 0px"}}>
                 <a style={{ color: "#a6a6a6"}} href="#">
                   IT Companies
                   <span className="px-1"><FontAwesomeIcon icon={faAngleDown} /></span>
                 </a>
               </li>
-              <li>
+              <li style={{ padding: "25px 0px"}}>
                 <a style={{ color: "#a6a6a6"}} href="#">
                   Blog
                 </a>

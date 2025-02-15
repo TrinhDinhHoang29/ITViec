@@ -3,8 +3,7 @@ import { Dropdown, Form, Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faCancel, faTimes, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const DropDownCheckbox = ({ title, options }) => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+const DropDownCheckbox = ({ title, options ,selectedOptions,setSelectedOptions }) => {
 
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
@@ -25,7 +24,7 @@ const DropDownCheckbox = ({ title, options }) => {
           }}
 
         >
-          {title}
+          {selectedOptions.length<1?title:selectedOptions.length>1?selectedOptions[0]+", +"+(selectedOptions.length-1).toString():selectedOptions[0]}
           <span style={{marginLeft:"10px"}}>
           {selectedOptions.length>0 ?<FontAwesomeIcon icon={faXmark} onClick={()=>setSelectedOptions([])} /> : <FontAwesomeIcon icon={faAngleDown} />}
           </span>
@@ -36,14 +35,14 @@ const DropDownCheckbox = ({ title, options }) => {
             <Form.Group key={index} className="mb-2 d-flex align-items-center">
               <Form.Check
                 type="checkbox"
-                id={`checkbox-${index}`}
+                id={`checkbox-${title}-${index}`}
                 value={option}
                 checked={selectedOptions.includes(option)}
                 onChange={handleCheckboxChange}
                 className="me-2"
               />
               <label
-                htmlFor={`checkbox-${index}`}
+                htmlFor={`checkbox-${title}-${index}`}
                 style={{ cursor: "pointer" }}
               >
                 {option}

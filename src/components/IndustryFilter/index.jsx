@@ -13,9 +13,8 @@ const industries = [
   "Education",
 ];
 
-const IndustryFilter = ({ onApply }) => {
+const IndustryFilter = ({ onApply,selectedIndustries,setSelectedIndustries }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedIndustries, setSelectedIndustries] = useState([]);
 
   // Lọc ngành theo tìm kiếm
   const filteredIndustries = industries.filter((industry) =>
