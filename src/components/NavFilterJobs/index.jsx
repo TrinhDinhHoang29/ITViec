@@ -28,8 +28,8 @@ const {
     const lengthFilter = selectedModels.length + selectedLevels.length + (salaryRange[0]!==500||salaryRange[1]!==10000?1:0) +selectedIndustries.length+selectedCompanies.length;
 
 return (<>
-        <div className="p-3 bg-white my-3 d-flex justify-content-between" style={{boxShadow:"0px 4px 20px rgba(0, 0, 0, .06)"}}>
-            <ul className="d-flex gap-2">
+        <div className="p-3 bg-white my-3 d-flex justify-content-between filterButton-parent" style={{boxShadow:"0px 4px 20px rgba(0, 0, 0, .06)"}}>
+            <ul className="d-xs-none d-sm-none d-lg-flex gap-2">
             <li>
                     <DropdownCheckBox title={"Level"} selectedOptions={selectedLevels} setSelectedOptions={setSelectedLevels} options={["Fresher", "Junior", "Senior","Manager"]} />
                 </li>
@@ -49,7 +49,7 @@ return (<>
                     {lengthFilter>0&& <span onClick={deleteAllClick} className="d-block text-dark" style={{padding:"10px 25px",cursor:"pointer",textDecoration:"underline"}} >Xóa</span>}
                 </li>
             </ul>
-            <div>
+            <div className="filterButton">
                 <FilterButton totalFilter={lengthFilter} />
             </div>
         </div>

@@ -51,13 +51,13 @@ export const DefaultLayout = () => {
               "linear-gradient(269.85deg, #54151C 0%, #121212 54.89%)",
           }}
         >
-          <div style={{ paddingTop: "24px", paddingBottom: "124px" }}>
+          <div style={{ paddingTop: "24px", paddingBottom: "124px" }} className="searchBar-wrap">
             <Container>
               <SearchBar />
             </Container>
           </div>
         </div>
-        <div className="icontainer-header" style={{ height: "200px" }}>
+        <div className="icontainer-header d-lg-block d-xs-none d-sm-none" style={{ height: "200px" }}>
           <SpotLight />
         </div>
         <div className="icontainer-header">
@@ -73,7 +73,7 @@ export const DefaultLayout = () => {
         </div>
         <div className="icontainer-header">
           <Row>
-            <Col xs="5">
+            <Col xs="12" sm="12" lg="5">
               <div className="d-flex flex-column mt-4">
                 {jobs.map((job) => (
                   <JobCard
@@ -84,7 +84,7 @@ export const DefaultLayout = () => {
                 ))}
               </div>
             </Col>
-            <Col style={{ position: "sticky", top: "80px", height: "100vh" }}>
+            <Col className="d-xs-none d-sm-none d-lg-block" style={{ position: "sticky", top: "80px", height: "100vh" }}>
               <JobDetail job={jobActive} />
             </Col>
           </Row>

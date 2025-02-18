@@ -9,7 +9,7 @@ const FilterButton = ({ totalFilter }) => {
     <>
       <div
         variant="light"
-        className="d-flex align-items-center px-3 border position-relative"
+        className="d-flex align-items-center px-3 border position-relative justify-content-center"
         bsPrefix="toggle"
         style={{
           borderRadius: "10px",

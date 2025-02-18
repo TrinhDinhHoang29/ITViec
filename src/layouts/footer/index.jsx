@@ -1,28 +1,78 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Col, Row } from "react-bootstrap";
 
 export const Footer = () => {
+  const footerData = [
+    {
+      title: "About Us",
+      links: [
+        "Home",
+        "About Us",
+        "AI Match Service",
+        "Contact Us",
+        "All Jobs",
+        "FAQ",
+      ],
+    },
+    {
+      title: "Campaign",
+      links: [
+        "IT Story",
+        "Writing Contest",
+        "Featured IT Jobs",
+        "Annual Survey",
+      ],
+    },
+    {
+      title: "Terms & Conditions",
+      links: [
+        "Privacy Policy",
+        "Operating Regulation",
+        "Complaint Handling",
+        "Terms & Conditions",
+        "Press",
+      ],
+    },
+    {
+      title: "Want to post a job? Contact us at:",
+      links: [
+          "Ho Chi Minh: (+84) 977 460 519",
+          "Ha Noi: (+84) 983 131 351",
+          "Email: love@itviec.com",
+          "Submit contact information"
+      ]
+  }
+  ];
+
   return (
     <>
       <footer
         className="pt-3"
         style={{
-          background: "linear-gradient(277.42deg, #54151C 0%, #121212 43.92%)",
+          background: "linear-gradient(177.12deg, #121212 48.81%, #54151C 98.26%)",
         }}
       >
-        <div
-          className="icontainer-header"
-          style={{ paddingTop: "50px"}}
-        >
+        <div className="icontainer-header" style={{ paddingTop: "50px" }}>
           <Row>
-            <Col xs="3">
-              <img
-                src="https://itviec.com/assets/logo-itviec-4492a2f2577a15a0a1d55444c21c0fa55810822b3b189fc689b450fb62ce0b5b.png"
-                alt=""
-              />
-              <ul className="d-flex gap-3 my-4">
+            <Col
+              xs="12"
+              sm="12"
+              lg="3"
+              className="d-sm-flex d-xs-flex d-lg-block flex-column justify-content-center"
+            >
+              <div className="text-center-sm">
+                <img
+                  src="https://itviec.com/assets/logo-itviec-4492a2f2577a15a0a1d55444c21c0fa55810822b3b189fc689b450fb62ce0b5b.png"
+                  alt=""
+                  width={150}
+                />
+                <div className="text-light" style={{ fontSize: "20px" }}>
+                  Ít nhưng mà chất
+                </div>
+              </div>
+              <ul className="d-flex justify-content-center-sm gap-3 my-4">
                 <li>
                   <a
                     href=""
@@ -53,110 +103,88 @@ export const Footer = () => {
               </ul>
             </Col>
             <Col>
-              <div className="d-flex justify-content-between footer-list">
-                <div class="footer-column">
-                  <h5>Về ITviec</h5>
-                  <ul>
-                    <li>
-                      <a href="#">Trang Chủ</a>
-                    </li>
-                    <li>
-                      <a href="#">Về ITviec.com</a>
-                    </li>
-                    <li>
-                      <a href="#">Dịch vụ gợi ý ứng viên</a>
-                    </li>
-                    <li>
-                      <a href="#">Liên Hệ</a>
-                    </li>
-                    <li>
-                      <a href="#">Việc Làm IT</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="footer-column">
-                  <h5>Chương trình</h5>
-                  <ul>
-                    <li>
-                      <a href="#">Chuyện IT</a>
-                    </li>
-                    <li>
-                      <a href="#">Cuộc thi viết</a>
-                    </li>
-                    <li>
-                      <a href="#">Việc làm IT nổi bật</a>
-                    </li>
-                    <li>
-                      <a href="#">Khảo sát thường niên</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="footer-column">
-                  <h5>Điều khoản chung</h5>
-                  <ul>
-                    <li>
-                      <a href="#">Quy định bảo mật</a>
-                    </li>
-                    <li>
-                      <a href="#">Quy chế hoạt động</a>
-                    </li>
-                    <li>
-                      <a href="#">Giải quyết khiếu nại</a>
-                    </li>
-                    <li>
-                      <a href="#">Thỏa thuận sử dụng</a>
-                    </li>
-                    <li>
-                      <a href="#">Thông cáo báo chí</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="footer-column">
-                  <h5>Liên hệ để đăng tin tuyển dụng tại:</h5>
-                  <ul>
-                    <li>
-                      <FontAwesomeIcon
-                        icon={faPhone}
-                        style={{ color: "#A6A6A6" }}
-                      />{" "}
-                      <a href="tel:+84977460519">
-                        Hồ Chí Minh: (+84) 977 460 519
-                      </a>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        icon={faPhone}
-                        style={{ color: "#A6A6A6" }}
-                      />{" "}
-                      <a href="tel:+84983131351">Hà Nội: (+84) 983 131 351</a>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        icon={faPhone}
-                        style={{ color: "#A6A6A6" }}
-                      />{" "}
-                      <a href="mailto:love@itviec.com">
-                        Email: love@itviec.com
-                      </a>
-                    </li>
-                    <li>
-                      <FontAwesomeIcon
-                        icon={faPhone}
-                        style={{ color: "#A6A6A6" }}
-                      />{" "}
-                      <a href="#">Gửi thông tin liên hệ</a>
-                    </li>
-                  </ul>
-                </div>
+              <div className="d-sm-none d-xs-none d-lg-flex justify-content-between footer-list">
+                {footerData.map((item) => (
+                  <div class="footer-column">
+                    <h5>{item.title}</h5>
+                    <ul>
+                      {item.links.map((i) => (
+                        <li>
+                          <a href="#">{i}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <div className="d-sm-flex d-xs-flex d-lg-none flex-column align-items-center position-relative" style={{zIndex:"10"}}>
+                {footerData.map((item,index) => (index<3&&
+                  <>
+                    <div
+                      className="d-flex justify-content-between py-3"
+                      style={{
+                        borderBottom: "1px solid rgba(255, 255, 255, .1)",
+                        fontSize: "20px",
+                        width: "100%",
+                        cursor: "pointer",
+                      }}
+                      data-bs-toggle="collapse"
+                      data-bs-target={`#collapseExample-${index}`}
+                      aria-expanded="false"
+                      aria-controls={`collapseExample`}
+                    >
+                      <h5 className="text-light">{item.title}</h5>
+                      <div className="text-muted">
+                        <FontAwesomeIcon icon={faAngleDown} />
+                      </div>
+                    </div>
+                    {item.links.map((i,index) => (
+                      <div class="collapse p-2" id={`collapseExample-${index}`} style={{width:"100%"}}>
+                        <div className="text-muted" style={{fontSize:"18px"}}>{i}</div>
+                      </div>
+                    ))}
+                  </>
+                ))}
+                 <div
+                      className="d-flex justify-content-between py-3"
+                      style={{
+                        fontSize: "20px",
+                        width: "100%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <h5 className="text-light">Want to post a job? Contact us at:</h5>
+                      <div className="text-muted">
+                      </div>
+                    </div>
+                    <ul style={{width:"100%"}} className="mb-4" >
+                      
+                        <li>
+                          <a href="#" className="text-muted" style={{fontSize:"18px"}}>Ho Chi Minh: (+84) 977 460 519</a>
+                        </li>
+                        <li>
+                        <a href="#" className="text-muted" style={{fontSize:"18px"}}>Ha Noi: (+84) 983 131 351</a>
+                        </li><li>
+                        <a href="#" className="text-muted" style={{fontSize:"18px"}}>Email: love@itviec.com</a>
+                        </li><li>
+                        <a href="#" className="text-muted" style={{fontSize:"18px"}}>Submit contact information</a>
+                        </li>
+                    </ul>
               </div>
             </Col>
           </Row>
-          <div style={{borderTop:"1px solid gray",marginTop:"50px",color:"#A6A6A6"}} className="d-flex py-4 justify-content-center">
+          <div
+            style={{
+              borderTop: "1px solid gray",
+              marginTop: "50px",
+              color: "#A6A6A6",
+            }}
+            className="d-flex py-4 justify-content-center"
+          >
             <p>Copyright © IT VIEC JSC</p>
-            <p style={{}} className="mx-4">|</p>
+            <p style={{}} className="mx-4">
+              |
+            </p>
             <p>MST: 0373333808</p>
           </div>
         </div>
