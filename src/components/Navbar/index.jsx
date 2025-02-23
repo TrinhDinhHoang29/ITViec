@@ -89,7 +89,7 @@ export const NavbarComponent = () => {
       <Row className="align-items-center">
         <Col className="d-none d-sm-none d-lg-block" lg={1}>
           <img
-            src="/images/logo-itviec.webp"
+            src="./images/logo-itviec.webp"
             alt="Logo"
             width={82}
             height={32}
