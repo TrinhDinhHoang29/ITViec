@@ -140,7 +140,7 @@ export const NavbarComponent = () => {
             <li style={{ padding: "25px 0px" }}>
               <a href="">
               <img
-            src="/images/logo-itviec.webp"
+            src="./images/logo-itviec.webp"
             alt="Logo"
             width={82}
             height={32}

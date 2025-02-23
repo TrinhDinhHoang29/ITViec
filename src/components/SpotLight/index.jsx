@@ -19,7 +19,7 @@ const SpotLight = () => {
       >
         <div className="position-relative">
           <img
-            src="/images/GrabBusiness.webp"
+            src="./images/GrabBusiness.webp"
             alt=""
             className="img-sm-spotlight"
             style={{
