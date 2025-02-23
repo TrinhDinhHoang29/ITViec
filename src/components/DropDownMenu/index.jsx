@@ -1,9 +1,31 @@
 import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 
 const DropDownMenu = ({ title,categories,width }) => {
+  const subMenuDropdown = useRef(0);
+  const getOriginHeight = useRef(0);
+  const [originHeight,setOriginHeight] = useState(0);
+  const [subMenuActive,setSubMenuActive] = useState(0);
+  const [heightSubMenu,setHeightSubMenu] = useState("auto");
+
+  const handleHover = (index)=>{
+    setSubMenuActive(index);
+  }
+  useEffect(()=>{
+
+    setHeightSubMenu(originHeight<=subMenuDropdown.current.clientHeight?subMenuDropdown.current.clientHeight:originHeight)
+  },[subMenuActive])
+
+  useEffect(() => {
+    getOriginHeight.current.style.display = "block";
+    setOriginHeight(getOriginHeight.current.clientHeight);
+    setHeightSubMenu(getOriginHeight.current.clientHeight<subMenuDropdown.current.clientHeight&&subMenuDropdown.current.clientHeight)
+    getOriginHeight.current.style.display = "none";
+
+}, []);
   return (
     <>
       <li
@@ -17,13 +39,14 @@ const DropDownMenu = ({ title,categories,width }) => {
           </span>
         </a>
         <div
+          ref={getOriginHeight}
           className="sub-menu-dropdown position-absolute "
           style={{ backgroundColor: "#121212", top: "100%"
           }}
         >
-          <ul>
-            {categories.map((category) => (
-              <li className="sub-menu-hover">
+          <ul style={{height:heightSubMenu}} >
+            {categories.map((category,indexParent) => (
+              <li className="sub-menu-hover" onMouseEnter={()=>handleHover(indexParent)}>
                 <a
                   href=""
                   className="d-flex justify-content-between p-3"
@@ -42,7 +65,9 @@ const DropDownMenu = ({ title,categories,width }) => {
                   }
                 </a>
                 <div
-                  className=" childSub-menu-dropdown position-absolute"
+                  ref={indexParent==subMenuActive?subMenuDropdown:null}
+                  
+                  className={`childSub-menu-dropdown position-absolute ${indexParent==subMenuActive&&"menu-active"}`}
                   style={{
                     backgroundColor: "#121212",
                     left: "100%",
@@ -51,7 +76,7 @@ const DropDownMenu = ({ title,categories,width }) => {
                     borderLeft:"1px solid #ffffff1a"
                   }}
                 >
-                  <Row>
+                  <Row >
                     {category.subcategories
                       .reduce((acc, item, index) => {
                         const colIndex = Math.floor(index / 8); // Mỗi cột chứa 8 phần tử

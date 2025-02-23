@@ -29,7 +29,7 @@ const {
 
 return (<>
         <div className="p-3 bg-white my-3 d-flex justify-content-between filterButton-parent" style={{boxShadow:"0px 4px 20px rgba(0, 0, 0, .06)"}}>
-            <ul className="d-xs-none d-sm-none d-lg-flex gap-2">
+            <ul className="d-none d-sm-none d-lg-flex gap-2">
             <li>
                     <DropdownCheckBox title={"Level"} selectedOptions={selectedLevels} setSelectedOptions={setSelectedLevels} options={["Fresher", "Junior", "Senior","Manager"]} />
                 </li>

@@ -60,7 +60,7 @@ export const Footer = () => {
               xs="12"
               sm="12"
               lg="3"
-              className="d-sm-flex d-xs-flex d-lg-block flex-column justify-content-center"
+              className="d-sm-flex d-flex d-lg-block flex-column justify-content-center"
             >
               <div className="text-center-sm">
                 <img
@@ -103,7 +103,7 @@ export const Footer = () => {
               </ul>
             </Col>
             <Col>
-              <div className="d-sm-none d-xs-none d-lg-flex justify-content-between footer-list">
+              <div className="d-sm-none d-none d-lg-flex justify-content-between footer-list">
                 {footerData.map((item) => (
                   <div class="footer-column">
                     <h5>{item.title}</h5>
@@ -117,7 +117,7 @@ export const Footer = () => {
                   </div>
                 ))}
               </div>
-              <div className="d-sm-flex d-xs-flex d-lg-none flex-column align-items-center position-relative" style={{zIndex:"10"}}>
+              <div className="d-sm-flex d-flex d-lg-none flex-column align-items-center position-relative" style={{zIndex:"10"}}>
                 {footerData.map((item,index) => (index<3&&
                   <>
                     <div
@@ -131,14 +131,14 @@ export const Footer = () => {
                       data-bs-toggle="collapse"
                       data-bs-target={`#collapseExample-${index}`}
                       aria-expanded="false"
-                      aria-controls={`collapseExample`}
+                      aria-controls={`collapseExample-${index}`}
                     >
                       <h5 className="text-light">{item.title}</h5>
                       <div className="text-muted">
                         <FontAwesomeIcon icon={faAngleDown} />
                       </div>
                     </div>
-                    {item.links.map((i,index) => (
+                    {item.links.map((i) => (
                       <div class="collapse p-2" id={`collapseExample-${index}`} style={{width:"100%"}}>
                         <div className="text-muted" style={{fontSize:"18px"}}>{i}</div>
                       </div>

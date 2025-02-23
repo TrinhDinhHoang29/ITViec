@@ -84,11 +84,10 @@ export const NavbarComponent = () => {
         }]);
       });
   }, []);
-
   return (
-    <>
+    categoriesJob.length>0 &&<>
       <Row className="align-items-center">
-        <Col className="d-xs-none d-sm-none d-lg-block" lg={1}>
+        <Col className="d-none d-sm-none d-lg-block" lg={1}>
           <img
             src="/images/logo-itviec.webp"
             alt="Logo"
@@ -96,7 +95,7 @@ export const NavbarComponent = () => {
             height={32}
           />
         </Col>
-        <Col className="d-xs-none d-sm-none d-lg-block">
+        <Col className="d-none d-sm-none d-lg-block">
           <div className="d-flex justify-content-between">
             <ul style={{ fontSize: "20px" }} className="d-flex gap-4">
               <DropDownMenu title={"All Jobs"} categories={categoriesJob} width={"800px"}/>
@@ -132,7 +131,7 @@ export const NavbarComponent = () => {
             </ul>
           </div>
         </Col>
-        <Col className="d-sm-block d-xs-block d-lg-none">
+        <Col className="d-sm-block d-block d-lg-none">
           <ul className="d-flex justify-content-between align-items-center">
             <li style={{ padding: "25px 0px" }} className="" >  
             <FontAwesomeIcon icon={faBars} className="text-muted" onClick={()=>setShowMenu(true)} style={{fontSize:"20px",cursor:"pointer"}}/>

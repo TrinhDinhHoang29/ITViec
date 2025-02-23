@@ -23,7 +23,12 @@ export const DefaultLayout = () => {
   const [selectedCompanies, setSelectedCompanies] = useState([]);
   const [salaryRange, setSalaryRange] = useState([500, 10000]);
   const [selectedIndustries, setSelectedIndustries] = useState([]);
-  //
+  // search
+  const [searchValue,setSearchValue] = useState({
+    type:"",
+    value:""
+  });
+  // end search
 
   const totalPages = 52; // Số trang tổng cộng
   const handleSetJobActive = (job) => {
@@ -31,17 +36,17 @@ export const DefaultLayout = () => {
   };
   useEffect(() => {
     fetch(
-      `https://67af317adffcd88a6785df5d.mockapi.io/job?page=${currentPage}&limit=5`
+      `https://67af317adffcd88a6785df5d.mockapi.io/job?location=${searchValue.type!=="All Cities"?searchValue.type:""}&title=${searchValue.value}&page=${currentPage}&limit=5`
     )
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
       });
-  }, [currentPage]);
+  }, [currentPage,searchValue]);
 
 
   return (
-    <>
+  <>
       <Header />
       <div className="main" style={{ marginTop: "80px" }}>
         <div
@@ -53,15 +58,16 @@ export const DefaultLayout = () => {
         >
           <div style={{ paddingTop: "24px", paddingBottom: "124px" }} className="searchBar-wrap">
             <Container>
-              <SearchBar />
+              <SearchBar value={setSearchValue}/>
             </Container>
           </div>
         </div>
-        <div className="icontainer-header d-lg-block d-xs-none d-sm-none" style={{ height: "200px" }}>
+        <div className="d-sm-flex d-flex d-lg-block flex-column-reverse">
+        <div className="icontainer-header height-sm-spotlight" style={{ height: "200px" }}>
           <SpotLight />
         </div>
         <div className="icontainer-header">
-          <FilterContext.Provider value={{
+        <FilterContext.Provider value={{
         selectedLevels, setSelectedLevels,
         selectedModels, setSelectedModels,
         selectedCompanies, setSelectedCompanies,
@@ -70,12 +76,10 @@ export const DefaultLayout = () => {
       }}>
             <FilterJobs />
           </FilterContext.Provider>
-        </div>
-        <div className="icontainer-header">
           <Row>
             <Col xs="12" sm="12" lg="5">
               <div className="d-flex flex-column mt-4">
-                {jobs.map((job) => (
+                {jobs!=="Not found"&&jobs.map((job) => (
                   <JobCard
                     job={job}
                     handleSetJobActive={handleSetJobActive}
@@ -84,19 +88,25 @@ export const DefaultLayout = () => {
                 ))}
               </div>
             </Col>
-            <Col className="d-xs-none d-sm-none d-lg-block" style={{ position: "sticky", top: "80px", height: "100vh" }}>
+            <Col className="d-none d-sm-none d-lg-block" style={{ position: "sticky", top: "80px", height: "100vh" }}>
               <JobDetail job={jobActive} />
             </Col>
           </Row>
-        </div>
-      </div>
-      <div className="my-4 d-flex justify-content-center">
+
+          <div className="my-4 d-flex justify-content-center">
         <CustomPagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={setCurrentPage}
         />
       </div>
+        </div>
+
+        </div>
+
+      </div>
+     
+
       <div style={{ borderTop: "1px solid #a6a6a6a6" }} className="mt-4 ">
         <div className="icontainer-header">
           <div className="py-4 d-flex gap-2" style={{ fontSize: "20px" }}>

@@ -40,6 +40,7 @@ body{
     padding-left: 30px;
     padding-right: 30px;
     max-width: 1860px;
+    width: 100%;
     margin: 0 auto;
 }
 .dropdown-filter .form-check-input:checked {
@@ -61,6 +62,45 @@ body{
   }
 
  @media (max-width: 992px) {
+  .ml-sm-0{
+    margin: 0 !important;
+  }
+  .infoSpotLight-sm{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    justify-content: center;
+  }
+  .jobSpotlight-border{
+    border-left: none !important;
+    border-top: 1px dashed #dedede;
+  }
+  .align-items-center-sm{
+    align-items: center;
+  }
+  .InfoCompany-sm{
+    flex-direction: column;
+    justify-content: center;
+    transform: translate(-50%,50%) !important;
+    left: 50% !important;
+    /* top: none !important; */
+    bottom: 0;
+    align-items: center;
+  }
+  .position-sm-spotlight{
+    top: 0 !important;
+  }
+  .img-sm-spotlight{
+    width: 100% !important;
+    height: auto !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 10px !important;
+    
+  }
+  .height-sm-spotlight{
+    margin: 40px 0px;
+    height: auto !important;
+  }
   .text-center-sm{
     text-align: center;
   }
@@ -77,7 +117,7 @@ body{
   }
   footer::after{
     width: 90% !important;
-    height: 50%;
+    height: 50% !important;
   }
 }
 
@@ -175,15 +215,19 @@ footer::after {
   background-color: #414042;
 }
 .menu-dropdown:hover .sub-menu-dropdown{
-  display: block ;
+  display: block !important;
  }
 .childSub-menu-dropdown{
   display: none;
 }
-.sub-menu-dropdown .sub-menu-hover:hover .childSub-menu-dropdown{
- display: flex;
- flex-direction: column;
+.menu-active{
+  display: flex;
+  flex-direction: column;
 }
+.sub-menu-dropdown .sub-menu-hover:hover .childSub-menu-dropdown{
+
+}
+
 .menu-item-hover:hover{
   color: white !important;
   background-color: #414042;
