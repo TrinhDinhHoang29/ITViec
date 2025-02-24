@@ -106,7 +106,6 @@ const FilterModal = ({ show, handleClose }) => {
         style={{
           maxHeight: "60vh",
           overflowY: "auto",
-          fontSize: "20px",
           paddingLeft: "30px",
         }}
         className="dropdown-filter"
@@ -200,7 +199,6 @@ const FilterModal = ({ show, handleClose }) => {
             value={searchIndustry}
             onChange={(e) => setSearchIndustry(e.target.value)}
             className="mt-2"
-            style={{ fontSize: "20px" }}
           />
           <div className="mt-2 border p-3">
             {industries
@@ -226,7 +224,6 @@ const FilterModal = ({ show, handleClose }) => {
                       )
                     }
                     className="me-2"
-                    style={{ fontSize: "20px" }}
                   />
                   <label
                     htmlFor={`checkboxModelIndustry-${index}`}
@@ -279,7 +276,7 @@ const FilterModal = ({ show, handleClose }) => {
       >
         <Button
           variant="link"
-          style={{ fontSize: "20px", textDecoration: "none" }}
+          style={{ textDecoration: "none" }}
           className="p-0"
           onClick={resetFilters}
         >
@@ -287,7 +284,6 @@ const FilterModal = ({ show, handleClose }) => {
         </Button>
         <Button
           variant="danger"
-          style={{ fontSize: "20px" }}
           onClick={handleApply}
         >
           Apply

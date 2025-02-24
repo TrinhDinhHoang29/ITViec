@@ -13,7 +13,7 @@ const SpotlightBadge = ({text,color,positionParent,borderParent,styleChild}) => 
           padding: "6px 12px",
           position: "relative",
           zIndex: 1,
-          fontSize:"18px",
+          fontSize:"14px",
           ...borderParent
         }}
       >

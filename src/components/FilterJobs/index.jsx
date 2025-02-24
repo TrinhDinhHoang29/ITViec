@@ -2,9 +2,9 @@ import NavFilterJobs from "../NavFilterJobs";
 
 const FilterJobs = ()=>{
     return (<>
-        <h1>
+        <h2 >
             978 IT jobs in Vietnam
-        </h1>
+        </h2>
         <NavFilterJobs />
     </>);
 }

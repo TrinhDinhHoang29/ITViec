@@ -12,7 +12,10 @@ const JobDetail = ({ job }) => {
 
   return (
     job&&<>
-    <Card className="mt-4 rounded border-0 dropdown-filter">
+    <Card className="mt-4 rounded border-0 dropdown-filter mb-3"
+      style={{position:"sticky",
+        top: "100px"}}
+    >
       <Card.Body className="p-0">
         <div className="px-4 mt-4">
         <div className="d-flex gap-3">
@@ -24,18 +27,18 @@ const JobDetail = ({ job }) => {
             className="border"
           />
           <div className="d-flex flex-column justify-content-between">
-            <h4>
+            <h5 style={{fontWeight:"700"}}>
               <a href="" className="text-dark">
                 {job.title}
               </a>
-            </h4>
+            </h5>
             <Card.Subtitle>
               <a href="" className="text-muted">
                 {job.company.name}
               </a>
             </Card.Subtitle>
 
-            <div style={{ fontSize: "20px" }}>
+            <div >
               <FontAwesomeIcon icon={faDollarSign} className="text-secondary" />{" "}
               <a
                 href="#"
@@ -51,14 +54,13 @@ const JobDetail = ({ job }) => {
           <Button
             variant="danger"
             className="w-100 mt-3"
-            style={{ fontSize: "20px" }}
           >
             Apply now
           </Button>
           <div>
             <a href="" className="text-danger">
               <FontAwesomeIcon
-                style={{ fontSize: "30px", transform: "translateY(10px)" }}
+                style={{ fontSize: "26px", transform: "translateY(10px)" }}
                 icon={faHeart}
               />
             </a>
@@ -112,15 +114,15 @@ const JobDetail = ({ job }) => {
         {job.benefits.length > 0 && (
         <div className="my-3">
           {/* Job Benefits */}
-          <h2>Top 3 reasons to join us</h2>
+          <h5 style={{fontWeight:"700"}}>Top 3 reasons to join us</h5>
           <ul className="mt-3">
             {job.benefits.map((benefit, index) => (
               <li
                 key={index}
                 className="px-3 d-flex align-items-center gap-2"
-                style={{ fontSize: "18px" }}
+                style={{ fontSize: "14px" }}
               >
-                <span style={{ fontSize: "30px" }} className="text-danger">
+                <span style={{ fontSize: "26px" }} className="text-danger">
                   •
                 </span>{" "}
                 {benefit}
@@ -133,7 +135,7 @@ const JobDetail = ({ job }) => {
         <div className="mt-3" style={{ borderTop: "1px dashed gray" }}></div>
 
         <div className="my-3">
-          <h2 className="mb-3">Job Desciption</h2>
+          <h5 style={{fontWeight:"700"}} className="mb-3">Job Desciption</h5>
           <div 
       dangerouslySetInnerHTML={{ __html: job.jobDescription }} 
       className="job-description"
@@ -141,8 +143,8 @@ const JobDetail = ({ job }) => {
         </div>
           <div id="company-info" className="mt-3 border-top pt-3">
             <div className="d-flex justify-content-between my-3">
-            <h3>{job.company.name}</h3>
-            <a href="#" style={{fontSize:"18px"}} >
+            <h5 style={{fontWeight:"700"}}>{job.company.name}</h5>
+            <a href="#" style={{fontSize:"14px"}} >
                 View company
             </a>
             </div>
@@ -154,7 +156,7 @@ const JobDetail = ({ job }) => {
                     <div className="text-muted">
                         Company Type
                     </div>
-                    <div style={{fontSize:"20px"}}>
+                    <div >
                         {job.company.type}
                     </div>
                 </Col>
@@ -162,14 +164,14 @@ const JobDetail = ({ job }) => {
                     <div className="text-muted">
                     Company Industry
                     </div>
-                    <div style={{fontSize:"20px"}}>
+                    <div >
                         {job.company.industry}
                     </div>
                 </Col><Col xs="4"  className="my-3">
                     <div className="text-muted">
                         Company Size
                     </div>
-                    <div style={{fontSize:"20px"}}>
+                    <div >
                         {job.company.size}
                     </div>
                 </Col>
@@ -177,7 +179,7 @@ const JobDetail = ({ job }) => {
                     <div className="text-muted">
                         Country
                     </div>
-                    <div style={{fontSize:"20px"}}>
+                    <div >
                         {job.company.country}
                     </div>
                 </Col>
@@ -185,7 +187,7 @@ const JobDetail = ({ job }) => {
                     <div className="text-muted">
                     Working days
                     </div>
-                    <div style={{fontSize:"20px"}}>
+                    <div >
                         {job.company.workingDays}
                     </div>
                 </Col>
@@ -193,23 +195,11 @@ const JobDetail = ({ job }) => {
                     <div className="text-muted">
                     Overtime policy
                     </div>
-                    <div style={{fontSize:"20px"}}>
+                    <div >
                         {job.company.policy}
                     </div>
                 </Col>
             </Row>
-            {/* <p>
-              <strong>Industry:</strong> {job.company.industry}
-            </p>
-            <p>
-              <strong>Company Size:</strong> {job.company.size}
-            </p>
-            <p>
-              <strong>Working Days:</strong> {job.company.workingDays}
-            </p>
-            <p>
-              <strong>Overtime Policy:</strong> {job.company.overtime}
-            </p> */}
           </div>
         </div>
       </Card.Body>

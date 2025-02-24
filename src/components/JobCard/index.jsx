@@ -55,14 +55,14 @@ const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
     />
     {/* Header */}
     <Card.Header className="d-flex justify-content-between align-items-center bg-transparent border-0 pb-0">
-      <div className="text-muted" style={{ fontSize: "20px" }}>
+      <div className="text-muted" >
         Posted {job.postedTime}
       </div>
     </Card.Header>
 
     {/* Job Title */}
     <Card.Body className="pb-0">
-      <Card.Title className="fw-bold" style={{ fontSize: "22px" }}>
+      <Card.Title className="fw-bold" style={{ fontSize: "18px" }}>
         {job.title}
       </Card.Title>
 
@@ -83,7 +83,7 @@ const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
       </Row>
 
       {/* Salary */}
-      <Card.Text className="mt-2" style={{ fontSize: "20px" }}>
+      <Card.Text className="mt-2">
         <FontAwesomeIcon icon={faDollarSign} className="text-secondary" />{" "}
         <a
           href="#"
@@ -126,9 +126,9 @@ const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
             <li
               key={index}
               className="px-3 d-flex align-items-center gap-2"
-              style={{ fontSize: "18px" }}
+              style={{ fontSize: "16px" }}
             >
-              <span style={{ fontSize: "30px" }} className="text-danger">
+              <span style={{ fontSize: "26px" }} className="text-danger">
                 •
               </span>{" "}
               {benefit}
@@ -171,14 +171,14 @@ const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
       />
       {/* Header */}
       <Card.Header className="d-flex justify-content-between align-items-center bg-transparent border-0 pb-0">
-        <div className="text-muted" style={{ fontSize: "20px" }}>
+        <div className="text-muted" >
           Posted {job.postedTime}
         </div>
       </Card.Header>
 
       {/* Job Title */}
       <Card.Body className="pb-0">
-        <Card.Title className="fw-bold" style={{ fontSize: "22px" }}>
+        <Card.Title className="fw-bold" style={{ fontSize: "18px" }}>
           {job.title}
         </Card.Title>
 
@@ -199,7 +199,7 @@ const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
         </Row>
 
         {/* Salary */}
-        <Card.Text className="mt-2" style={{ fontSize: "20px" }}>
+        <Card.Text className="mt-2" >
           <FontAwesomeIcon icon={faDollarSign} className="text-secondary" />{" "}
           <a
             href="#"
@@ -242,7 +242,7 @@ const JobCard = ({ job ,handleSetJobActive, jobActive}) => {
               <li
                 key={index}
                 className="px-3 d-flex align-items-center gap-2"
-                style={{ fontSize: "18px" }}
+                style={{ fontSize: "14px" }}
               >
                 <span style={{ fontSize: "30px" }} className="text-danger">
                   •

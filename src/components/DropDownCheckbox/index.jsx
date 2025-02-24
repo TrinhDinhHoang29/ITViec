@@ -20,7 +20,7 @@ const DropDownCheckbox = ({ title, options ,selectedOptions,setSelectedOptions }
           className={"d-flex align-items-center px-3 border bg-white "+(selectedOptions.length>0? " border-danger text-danger":"")}
           bsPrefix="toggle"
 
-          style={{borderRadius:"25px",padding:"10px 25px",fontSize:"19px"
+          style={{borderRadius:"25px",padding:"10px 25px"
           }}
 
         >
@@ -30,7 +30,7 @@ const DropDownCheckbox = ({ title, options ,selectedOptions,setSelectedOptions }
           </span>
         </Dropdown.Toggle>
 
-        <Dropdown.Menu style={{ padding: "10px", minWidth: "200px",fontSize:"19px" }}>
+        <Dropdown.Menu style={{ padding: "10px", minWidth: "200px" }}>
           {options.map((option, index) => (
             <Form.Group key={index} className="mb-2 d-flex align-items-center">
               <Form.Check

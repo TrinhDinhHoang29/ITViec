@@ -40,7 +40,7 @@ const IndustryFilter = ({ onApply,selectedIndustries,setSelectedIndustries }) =>
           (selectedIndustries.length > 0 ? " border-danger text-danger" : "")
         }
         bsPrefix="toggle"
-        style={{ borderRadius: "25px", padding: "10px 25px", fontSize: "19px" }}
+        style={{ borderRadius: "25px", padding: "10px 25px" }}
       >
         Industry
         <span style={{ marginLeft: "10px" }}>
@@ -70,7 +70,6 @@ const IndustryFilter = ({ onApply,selectedIndustries,setSelectedIndustries }) =>
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="mb-2"
-          style={{ fontSize: "20px" }}
         />
 
         {/* Danh sách ngành nghề */}
@@ -84,7 +83,6 @@ const IndustryFilter = ({ onApply,selectedIndustries,setSelectedIndustries }) =>
               checked={selectedIndustries.includes(industry)}
               onChange={() => handleSelect(industry)}
               className="me-2"
-              style={{ fontSize: "20px" }}
             />
             <label
               htmlFor={`checkboxIndustry-${index}`}

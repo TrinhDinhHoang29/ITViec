@@ -61,9 +61,9 @@ const HamburgerMenu = ({ showMenu, setShowMenu, data }) => {
             style={{
               cursor: "pointer",
               color: "gray",
-              fontSize: "20px",
               padding: "25px 0px",
             }}
+            className="fs-6"
           >
            {!showSubMenu&&<><span className="px-2"><FontAwesomeIcon icon={faAngleLeft} /></span>
             Back</>} 
@@ -73,9 +73,9 @@ const HamburgerMenu = ({ showMenu, setShowMenu, data }) => {
             style={{
               cursor: "pointer",
               color: "gray",
-              fontSize: "20px",
               padding: "25px 0px",
             }}
+            className="fs-6"
           >
             Close
             <span className="px-2">X</span>
@@ -86,8 +86,8 @@ const HamburgerMenu = ({ showMenu, setShowMenu, data }) => {
           {data.map((category) => (
             <li onClick={()=>handleOnclickMenu(category)}>
               <div
-                className="p-3 text-light d-flex justify-content-between"
-                style={{ cursor: "pointer", fontSize: "20px" }}
+                className="p-3 text-light d-flex justify-content-between fs-6"
+                style={{ cursor: "pointer"}}
               >
                 <span>{category.name}</span>
                 <span>
@@ -98,8 +98,8 @@ const HamburgerMenu = ({ showMenu, setShowMenu, data }) => {
           ))}
           <li>
             <div
-              className="p-3 text-light d-flex justify-content-center"
-              style={{ cursor: "pointer", fontSize: "20px" }}
+              className="p-3 text-light d-flex justify-content-center fs-6"
+              style={{ cursor: "pointer" }}
             >
               <span>EN</span>
               <span className="px-3">|</span>
@@ -111,8 +111,8 @@ const HamburgerMenu = ({ showMenu, setShowMenu, data }) => {
           {dataSubMenu.map((category) => (
             <li>
               <div
-                className="p-3 text-light d-flex justify-content-between"
-                style={{ cursor: "pointer", fontSize: "20px" }}
+                className="p-3 text-light d-flex justify-content-between fs-6"
+                style={{ cursor: "pointer"}}
               >
                 <span>{category}</span>
                 <span>

@@ -14,7 +14,6 @@ const FilterButton = ({ totalFilter }) => {
         style={{
           borderRadius: "10px",
           padding: "10px 30px",
-          fontSize: "19px",
           cursor: "pointer",
         }}
         onClick={() => setShow(true)}

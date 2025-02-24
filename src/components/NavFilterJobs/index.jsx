@@ -43,7 +43,7 @@ return (<>
                     <IndustryFilter selectedIndustries={selectedIndustries} setSelectedIndustries={setSelectedIndustries} />
                 </li>
                 <li>
-                    {selectedCompanies.length>0&& <span className="d-block border border-danger text-danger" style={{padding:"10px 25px",cursor:"pointer",fontSize:"19px",borderRadius:"25px"}} >+ {selectedCompanies.length} filter</span>}
+                    {selectedCompanies.length>0&& <span className="d-block border border-danger text-danger" style={{padding:"10px 25px",cursor:"pointer",borderRadius:"25px"}} >+ {selectedCompanies.length} filter</span>}
                 </li>
                 <li>
                     {lengthFilter>0&& <span onClick={deleteAllClick} className="d-block text-dark" style={{padding:"10px 25px",cursor:"pointer",textDecoration:"underline"}} >Xóa</span>}

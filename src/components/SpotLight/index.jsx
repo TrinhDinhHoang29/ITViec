@@ -52,7 +52,7 @@ const SpotLight = () => {
         <Row style={{ width: "100%" }}>
           <Col lg="6" className="d-flex align-items-center  infoSpotLight-sm">
           <div className="d-flex  flex-column justify-content-between align-items-center-sm ml-sm-0" style={{marginLeft:"100px"}}>
-          <h4>Grab (Vietnam) Ltd.</h4>
+          <h5>Grab (Vietnam) Ltd.</h5>
           <div>
             <FontAwesomeIcon
               icon={faLocationDot}
@@ -83,7 +83,7 @@ const SpotLight = () => {
             <ul className="p-3 d-flex flex-column gap-3 my-3">
               {jobsSpotlight.map((item) => (
                 <li>
-                  <a href="#" style={{ fontSize: "18px", color: "black" }}>
+                  <a href="#" style={{ fontSize: "14px", color: "black" }}>
                     <span className="mx-2 text-danger">
                       <FontAwesomeIcon icon={faArrowAltCircleRight} />
                     </span>

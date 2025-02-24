@@ -88,7 +88,7 @@ export const DefaultLayout = () => {
                 ))}
               </div>
             </Col>
-            <Col className="d-none d-sm-none d-lg-block" style={{ position: "sticky", top: "80px", height: "100vh" }}>
+            <Col className="d-none d-sm-none d-lg-block" >
               <JobDetail job={jobActive} />
             </Col>
           </Row>
@@ -109,7 +109,7 @@ export const DefaultLayout = () => {
 
       <div style={{ borderTop: "1px solid #a6a6a6a6" }} className="mt-4 ">
         <div className="icontainer-header">
-          <div className="py-4 d-flex gap-2" style={{ fontSize: "20px" }}>
+          <div className="py-4 d-flex gap-2" >
             <a href="" className="text-secondary">
               Trang chủ
             </a>

@@ -49,12 +49,13 @@ const DropDownMenu = ({ title,categories,width }) => {
               <li className="sub-menu-hover" onMouseEnter={()=>handleHover(indexParent)}>
                 <a
                   href=""
-                  className="d-flex justify-content-between p-3"
+                  className="d-flex justify-content-between"
                   style={{
-                    width: "350px",
-                    fontSize: "17px",
+                    width: "250px",
+                    fontSize: "14px",
                     color: "rgb(166, 166, 166)",
-                    borderBottom:" 1px solid #ffffff1a"
+                    borderBottom:" 1px solid #ffffff1a",
+                    padding:"15px 20px"
                   }}
                 >
                   <span>{category.name}</span>
@@ -90,11 +91,12 @@ const DropDownMenu = ({ title,categories,width }) => {
                             <div key={index}>
                               <a
                                 href=""
-                                className="d-block p-3 menu-item-hover"
+                                className="d-block menu-item-hover"
                                 style={{
                                   color: "rgb(166, 166, 166)",
-                                  fontSize: "17px",
-                                  borderBottom: "1px solid transparent"
+                                  fontSize: "14px",
+                                  borderBottom: "1px solid transparent",
+                                  padding:"15px 20px"
                                 }}
                               >
                                 {item}
@@ -107,7 +109,7 @@ const DropDownMenu = ({ title,categories,width }) => {
                    {category.subcategories.length>8 &&
                     <div className="">
                     <a href="#" className="text-center d-block p-3" style={{ 
-                         fontSize: "17px",
+                         fontSize: "14px",
                     color: "rgb(166, 166, 166)",
                     borderTop:"1px solid #ffffff1a"
                     }}>

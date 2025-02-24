@@ -21,7 +21,7 @@ const SalaryFilter = ({ onApply ,salaryRange}) => {
         variant="light"
         className={"d-flex align-items-center px-3 border bg-white "+(salaryRange[0]!==500||salaryRange[1]!==10000? " border-danger text-danger":"")}
         bsPrefix="toggle"
-        style={{ borderRadius: "25px", padding: "10px 25px", fontSize: "19px" }}
+        style={{ borderRadius: "25px", padding: "10px 25px"}}
       >
         Salary
         <span style={{marginLeft:"10px"}}>
@@ -30,7 +30,7 @@ const SalaryFilter = ({ onApply ,salaryRange}) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu style={{ padding: "15px", minWidth: "280px" }}>
-        <div style={{ padding: "10px 1px 15px", fontSize: "20px" }}>
+        <div style={{ padding: "10px 1px 15px"}}>
           <RangeValue values={values} />
         </div>
         <div className="px-3 mt-3">

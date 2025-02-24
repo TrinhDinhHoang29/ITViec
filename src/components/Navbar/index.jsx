@@ -97,15 +97,15 @@ export const NavbarComponent = () => {
         </Col>
         <Col className="d-none d-sm-none d-lg-block">
           <div className="d-flex justify-content-between">
-            <ul style={{ fontSize: "20px" }} className="d-flex gap-4">
+            <ul className="d-flex gap-4 fs-6">
               <DropDownMenu title={"All Jobs"} categories={categoriesJob} width={"800px"}/>
-              <DropDownMenu title={"IT Companies"} categories={categoriesCompany} width={"300px"} />
+              <DropDownMenu title={"IT Companies"} categories={categoriesCompany} width={"640px"} />
               <DropDownMenu title={"Blog"} categories={categoriesBlog} width={"300px"} />
              
             </ul>
             <ul
-              style={{ padding: "25px 0px", fontSize: "20px" }}
-              className="d-flex gap-4"
+              style={{ padding: "25px 0px"}}
+              className="d-flex gap-4 fs-6"
             >
               <li>
                 <a style={{ color: "white" }} href="#">
@@ -149,7 +149,7 @@ export const NavbarComponent = () => {
             
             </li>
             <li style={{ padding: "25px 0px" }}>
-              <a href=""style={{fontSize:"20px",color:"white"}}>
+              <a href="" className="fs-6" style={{color:"white"}}>
                 Sign In
               </a>
             

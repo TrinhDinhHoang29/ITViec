@@ -68,7 +68,7 @@ export const Footer = () => {
                   alt=""
                   width={150}
                 />
-                <div className="text-light" style={{ fontSize: "20px" }}>
+                <div className="text-light" >
                   Ít nhưng mà chất
                 </div>
               </div>
@@ -77,7 +77,7 @@ export const Footer = () => {
                   <a
                     href=""
                     className="rounded-circle text-muted border px-2 py-1"
-                    style={{ fontSize: "30px" }}
+                    style={{ fontSize: "26px" }}
                   >
                     <FontAwesomeIcon icon={faHeart} />
                   </a>
@@ -86,7 +86,7 @@ export const Footer = () => {
                   <a
                     href=""
                     className="rounded-circle text-muted border px-2 py-1"
-                    style={{ fontSize: "30px" }}
+                    style={{ fontSize: "26px" }}
                   >
                     <FontAwesomeIcon icon={faHeart} />
                   </a>
@@ -95,7 +95,7 @@ export const Footer = () => {
                   <a
                     href=""
                     className="rounded-circle text-muted border px-2 py-1"
-                    style={{ fontSize: "30px" }}
+                    style={{ fontSize: "26px" }}
                   >
                     <FontAwesomeIcon icon={faHeart} />
                   </a>
@@ -106,11 +106,11 @@ export const Footer = () => {
               <div className="d-sm-none d-none d-lg-flex justify-content-between footer-list">
                 {footerData.map((item) => (
                   <div class="footer-column">
-                    <h5>{item.title}</h5>
+                    <h5 style={{fontSize:"18px"}}>{item.title}</h5>
                     <ul>
                       {item.links.map((i) => (
                         <li>
-                          <a href="#">{i}</a>
+                          <a href="#" style={{fontSize:"14px"}}>{i}</a>
                         </li>
                       ))}
                     </ul>
@@ -124,7 +124,6 @@ export const Footer = () => {
                       className="d-flex justify-content-between py-3"
                       style={{
                         borderBottom: "1px solid rgba(255, 255, 255, .1)",
-                        fontSize: "20px",
                         width: "100%",
                         cursor: "pointer",
                       }}
@@ -133,14 +132,14 @@ export const Footer = () => {
                       aria-expanded="false"
                       aria-controls={`collapseExample-${index}`}
                     >
-                      <h5 className="text-light">{item.title}</h5>
+                      <h5 className="text-light" style={{fontSize:"16px"}}>{item.title}</h5>
                       <div className="text-muted">
                         <FontAwesomeIcon icon={faAngleDown} />
                       </div>
                     </div>
                     {item.links.map((i) => (
                       <div class="collapse p-2" id={`collapseExample-${index}`} style={{width:"100%"}}>
-                        <div className="text-muted" style={{fontSize:"18px"}}>{i}</div>
+                        <div className="text-muted" style={{fontSize:"14px"}}>{i}</div>
                       </div>
                     ))}
                   </>
@@ -148,26 +147,25 @@ export const Footer = () => {
                  <div
                       className="d-flex justify-content-between py-3"
                       style={{
-                        fontSize: "20px",
                         width: "100%",
                         cursor: "pointer",
                       }}
                     >
-                      <h5 className="text-light">Want to post a job? Contact us at:</h5>
+                      <h5 className="text-light" style={{fontSize:"16px"}}>Want to post a job? Contact us at:</h5>
                       <div className="text-muted">
                       </div>
                     </div>
                     <ul style={{width:"100%"}} className="mb-4" >
                       
                         <li>
-                          <a href="#" className="text-muted" style={{fontSize:"18px"}}>Ho Chi Minh: (+84) 977 460 519</a>
+                          <a href="#" className="text-muted" style={{fontSize:"14px"}}>Ho Chi Minh: (+84) 977 460 519</a>
                         </li>
                         <li>
-                        <a href="#" className="text-muted" style={{fontSize:"18px"}}>Ha Noi: (+84) 983 131 351</a>
+                        <a href="#" className="text-muted" style={{fontSize:"14px"}}>Ha Noi: (+84) 983 131 351</a>
                         </li><li>
-                        <a href="#" className="text-muted" style={{fontSize:"18px"}}>Email: love@itviec.com</a>
+                        <a href="#" className="text-muted" style={{fontSize:"14px"}}>Email: love@itviec.com</a>
                         </li><li>
-                        <a href="#" className="text-muted" style={{fontSize:"18px"}}>Submit contact information</a>
+                        <a href="#" className="text-muted" style={{fontSize:"14px"}}>Submit contact information</a>
                         </li>
                     </ul>
               </div>
